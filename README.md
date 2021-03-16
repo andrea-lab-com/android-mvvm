@@ -80,7 +80,11 @@ logic and serves up data to and from the presentation layer through domain objec
 
 ## Testing
 
-Each module has its own tests except for the ```domain``` module which is catered for since its
+Types of Test:
+- Unit test
+- UI Test (Espresso)
+
+Each module has its own tests(Unit Test) except for the ```domain``` module which is catered for since its
 part of the behavior under test.
 
 All server responses in the tests are served by mock web server by appending relative urls to
@@ -89,15 +93,19 @@ the localhost and the connected port as the base url.
 In the ``data`` module the responses are mocked using the mockwebserver and verified that they
 are what we expect. And in this module an memory database is being used to run the tests,this 
 makes it a little faster compared to an actual db.
+In this module the repositories are been tested.
 
-In the ```app``` module there are unit tests for the viewmodels and util classes 
-and connected tests for the UI Screens.
+In the ```app``` module there are:
+- Unit tests for the Viewmodels
+- UI tests for the UI Screens.
 
-The test instrumentation app uses modules that have been swaped with fakes for
-the network module so as to run requests on localhost with mockwebserver,this removes flakiness 
+The test instrumentation app uses modules that have been swaped(using Koin) with fakes for:
+
+- The network module so as to run requests on localhost with mockwebserver, this removes flakiness
 compared to relying on actual  data from the real server aspects such as internet connection or
-network service might bring up issues and an in memory database for local data that also allows 
-main thread queries since tests should also be fast and we are just asserting stuff works.
+network service might bring up issues
+- An in memory database for local data that also allows main thread queries since tests
+should also be fast and we are just asserting stuff works.
 
 View models testing on live data were guided by this [article](https://proandroiddev.com/how-to-easily-test-a-viewmodel-with-livedata-and-coroutines-230c74416047)
  
