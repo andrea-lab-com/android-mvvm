@@ -1,9 +1,9 @@
 # android-mvvm
 
 Demo Android app that consume [3 endpoints]:
-- http://jsonplaceholder.typicode.com/posts
-- http://jsonplaceholder.typicode.com/users
-- http://jsonplaceholder.typicode.com/comments
+- https://jsonplaceholder.typicode.com/posts
+- https://jsonplaceholder.typicode.com/users
+- https://jsonplaceholder.typicode.com/comments
 
 The app have two screens:
 - A first screen to present a list of posts.
@@ -13,10 +13,13 @@ The first time the app will get all data from API, and store that in a local DB,
 and register the timestamp of the last call per endpoint.
 
 The data in local DB will be active for 5 minutes, during this time if the user 
-open one screen the app present to user data from local DB.
+open one screen the app doesn't call to API.
 
 After the expiration of data(more of 5 minutes), if the user open one screen, the 
 app will call to API again and update local DB.
+
+The App use single source of truth principle, all of data present to the user will be 
+from local DB.
 
 It has been built with clean architecture principles, Repository Pattern and MVVM
 pattern as well as Architecture Components.
