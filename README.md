@@ -1,7 +1,24 @@
 # android-mvvm
 
-An Android app consuming [3 endpoints](http://jsonplaceholder.typicode.com/posts, http://jsonplaceholder.typicode.com/users, http://jsonplaceholder.typicode.com/comments, ) to display a list of Post and post details
-it has been built with clean architecture principles, Repository Pattern and MVVM
+Demo Android app that consume [3 endpoints]:
+- http://jsonplaceholder.typicode.com/posts
+- http://jsonplaceholder.typicode.com/users
+- http://jsonplaceholder.typicode.com/comments
+
+The app have two screens:
+- A first screen to present a list of posts.
+- A second screen presenting post details.
+
+The first time the app will get all data from API, and store that in a local DB, 
+and register the timestamp of the last call per endpoint.
+
+The data in local DB will be active for 5 minutes, during this time if the user 
+open one screen the app present to user data from local DB.
+
+After the expiration of data(more of 5 minutes), if the user open one screen, the 
+app will call to API again and update local DB.
+
+It has been built with clean architecture principles, Repository Pattern and MVVM
 pattern as well as Architecture Components.
 
 Min Api Level : 24 (https://developer.android.com/about/dashboards)
@@ -113,10 +130,7 @@ and default parameters
 
 ## Demo
 
-The codebase in most cases will be ahead of whats on the store.
-
-|<img src="imgs/sh1.png" width=200/>|<img src="imgs/sh2.png" width=200/>|<img src="imgs/sh3.png" width=200/>|
-|:----:|:----:|:----:|:----:|
+|<img src="imgs/sh11.png" width=200/>|<img src="imgs/sh12.png" width=200/>|<img src="imgs/sh13.png" width=200/>|
 
 
 ## License
